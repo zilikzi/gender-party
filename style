@@ -1,0 +1,41 @@
+```css
+/* Готический шрифт для всего сайта */
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap');
+
+body {
+    font-family: 'UnifrakturMaguntia', cursive;
+    color: #f2e6ed;
+}
+
+/* Заголовки */
+h1, h2, h3 {
+    font-family: 'UnifrakturCook', cursive;
+    color: #d58baa;
+    text-shadow: 0 0 10px #d58baa66;
+}
+
+/* Обычный текст */
+p, a, li, label, button, input, select {
+    font-family: 'UnifrakturMaguntia', cursive;
+}
+
+/* Эффект при наведении на ссылки */
+a:hover {
+    color: #9cbde9;
+    text-shadow: 0 0 12px #9cbde9;
+}
+
+/* Готический стиль кнопок */
+button {
+    color: #f2e6ed;
+    background: #100b13;
+    border: 1px solid #d58baa;
+    transition: 0.3s;
+}
+
+button:hover {
+    color: #09070c;
+    background: #d58baa;
+    box-shadow: 0 0 20px #d58baa88;
+}
+```

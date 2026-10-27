@@ -1,0 +1,840 @@
+﻿```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Готесса или ангел тьмы? 🥀</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --pink: #d58baa;
+    --blue: #9cbde9;
+    --black: #09070c;
+    --white: #f2e6ed;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(ellipse at 15% 20%, #301523 0, transparent 40%),
+        radial-gradient(ellipse at 90% 65%, #102035 0, transparent 38%),
+        var(--black);
+    color: var(--white);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "✧  ♱  🥀  ♡  ✧  ♱  🥀";
+    position: fixed;
+    inset: 0;
+    color: #d58baa12;
+    font-size: 35px;
+    letter-spacing: 35px;
+    line-height: 100px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input {
+    font: inherit;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 7%;
+    background: #08060bf0;
+    border-bottom: 1px solid #d58baa55;
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    color: var(--pink);
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 27px;
+}
+
+.navlinks {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.navlinks a {
+    font-size: 16px;
+    transition: .3s;
+}
+
+.navlinks a:hover {
+    color: var(--pink);
+    text-shadow: 0 0 12px var(--pink);
+}
+
+section {
+    padding: 85px 8%;
+    border-bottom: 1px solid #d58baa30;
+    position: relative;
+}
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        linear-gradient(#08060b88, #08060bd9),
+        radial-gradient(ellipse at center, #412036, #08060b 70%);
+}
+
+.eyebrow {
+    color: var(--pink);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: clamp(48px, 8vw, 100px);
+    line-height: 1.1;
+    font-weight: normal;
+    text-shadow: 0 0 30px #d58baa66;
+}
+
+h1 span {
+    display: block;
+    color: var(--blue);
+}
+
+.subtitle {
+    max-width: 620px;
+    line-height: 1.8;
+    margin: 30px auto;
+    color: #e4d3df;
+    font-size: 21px;
+}
+
+.ornament {
+    color: var(--pink);
+    letter-spacing: 10px;
+    margin: 25px 0;
+}
+
+.btn {
+    display: inline-block;
+    border: 1px solid var(--pink);
+    border-radius: 40px;
+    background: #d58baa16;
+    color: var(--white);
+    padding: 13px 28px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: var(--pink);
+    color: #160b12;
+    box-shadow: 0 0 25px #d58baa88;
+    transform: translateY(-2px);
+}
+
+h2 {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: clamp(35px, 5vw, 55px);
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--pink);
+}
+
+.description {
+    max-width: 700px;
+    margin: 0 auto 35px;
+    text-align: center;
+    line-height: 1.8;
+    color: #d6c7d2;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.card {
+    padding: 28px 22px;
+    background: #ffffff05;
+    border: 1px solid #d58baa44;
+    outline: 1px solid #9cbde91a;
+    outline-offset: 5px;
+    text-align: center;
+    transition: .3s;
+}
+
+.card:hover {
+    border-color: var(--pink);
+    transform: translateY(-4px);
+    box-shadow: 0 0 22px #d58baa20;
+}
+
+.card .symbol {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    font-size: 25px;
+    color: var(--blue);
+    margin-bottom: 12px;
+}
+
+.card p {
+    line-height: 1.6;
+    color: #d6c7d2;
+}
+
+.timer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 650px;
+    margin: 35px auto;
+}
+
+.time-box {
+    padding: 22px 5px;
+    border: 1px solid #9cbde966;
+    background: #9cbde90b;
+}
+
+.time-box strong {
+    display: block;
+    color: var(--blue);
+    font-size: clamp(27px, 5vw, 45px);
+}
+
+.time-box span {
+    font-size: 14px;
+    color: #cbbacb;
+}
+
+.calendar {
+    width: 100%;
+    max-width: 420px;
+    margin: 30px auto 0;
+    padding: 25px;
+    border: 1px solid #d58baa66;
+    background: #100b13;
+}
+
+.month {
+    text-align: center;
+    color: var(--pink);
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    text-align: center;
+}
+
+.days div {
+    padding: 9px 0;
+}
+
+.weekday {
+    color: var(--blue);
+    font-size: 14px;
+}
+
+.selected-day {
+    background: var(--pink);
+    color: #160b12;
+    border-radius: 50%;
+    font-weight: bold;
+    box-shadow: 0 0 16px #d58baa66;
+}
+
+.vote-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 650px;
+    margin: 35px auto;
+}
+
+.vote {
+    padding: 30px 10px;
+    min-height: 190px;
+    border: 1px solid var(--pink);
+    background: linear-gradient(145deg, #50243b66, #09070c);
+    color: var(--pink);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.vote.blue {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: linear-gradient(145deg, #1b385866, #09070c);
+}
+
+.vote .emoji {
+    display: block;
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.vote strong {
+    font-size: 26px;
+}
+
+.vote:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 25px currentColor;
+}
+
+.vote-result {
+    text-align: center;
+    min-height: 35px;
+    color: var(--pink);
+}
+
+.dress {
+    text-align: center;
+    padding: 25px;
+    border: 1px dashed #d58baa66;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+.swatches {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin: 28px 0;
+}
+
+.swatch {
+    width: 100px;
+}
+
+.color {
+    height: 80px;
+    border-radius: 50% 50% 45% 45%;
+    border: 2px solid #ffffff55;
+    margin-bottom: 12px;
+}
+
+.pink-color {
+    background: #71364f;
+}
+
+.blue-color {
+    background: #29496f;
+}
+
+form {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 30px;
+    border: 1px solid #d58baa55;
+    background: #100b13;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--pink);
+}
+
+input, select {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 13px;
+    background: #08060b;
+    border: 1px solid #9cbde955;
+    color: white;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: var(--pink);
+}
+
+form .btn {
+    width: 100%;
+}
+
+#formMessage {
+    text-align: center;
+    color: var(--blue);
+    margin-top: 20px;
+}
+
+.no-button {
+    display: block;
+    margin: 25px auto 0;
+    color: #b9aab5;
+    border-color: #777;
+}
+
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    line-height: 2;
+}
+
+footer .signature {
+    color: var(--pink);
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 35px;
+}
+
+footer small {
+    color: #a99aa8;
+}
+
+/* Скример */
+.scare {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: #030204;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
+.scare.active {
+    display: flex;
+    animation: flash .25s 3;
+}
+
+.skull {
+    font-size: clamp(100px, 24vw, 220px);
+    filter: drop-shadow(0 0 25px #d00035);
+    animation: shake .12s infinite;
+}
+
+.scare h2 {
+    color: #f2e6ed;
+    font-family: 'UnifrakturCook', cursive;
+    font-size: clamp(35px, 7vw, 65px);
+    margin: 20px 0;
+}
+
+.scare p {
+    color: var(--pink);
+    font-size: 21px;
+    margin-bottom: 25px;
+}
+
+@keyframes flash {
+    0%, 100% { background: #030204; }
+    50% { background: #36000e; }
+}
+
+@keyframes shake {
+    0% { transform: translate(2px, -2px) rotate(-2deg); }
+    50% { transform: translate(-2px, 2px) rotate(2deg); }
+    100% { transform: translate(2px, 2px) rotate(-1deg); }
+}
+
+@media (max-width: 650px) {
+    nav {
+        flex-direction: column;
+    }
+
+    .navlinks {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+
+    .timer {
+        gap: 5px;
+    }
+
+    .time-box {
+        padding: 15px 2px;
+    }
+
+    .time-box span {
+        font-size: 11px;
+    }
+
+    .vote-grid {
+        gap: 10px;
+    }
+
+    .vote {
+        padding: 20px 5px;
+    }
+
+    .swatches {
+        gap: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#home" class="logo">А & А ♡</a>
+    <div class="navlinks">
+        <a href="#home">Главная</a>
+        <a href="#event">Событие</a>
+        <a href="#guess">Угадай</a>
+        <a href="#dress">Дресс-код</a>
+        <a href="#rsvp">RSVP</a>
+    </div>
+</nav>
+
+<section class="hero" id="home">
+    <div class="eyebrow">✧ 05 · 10 · 2027 ✧</div>
+
+    <h1>Готесса <span>или ангел тьмы?</span></h1>
+
+    <div class="ornament">🥀 ── ♡ ── 🥀</div>
+
+    <p class="subtitle">
+        Дорогие души, заблудившиеся в нашем маленьком мире тьмы...
+        <br><br>
+        Асия и Алихан приглашают вас на таинственное гендер-пати.
+        Вместе мы раскроем секрет: кто скоро появится на свет —
+        готесса в розовом или ангел тьмы в голубом?
+    </p>
+
+    <a href="#event" class="btn">Войти в тайну ♱</a>
+
+    <div class="ornament">🕸 ✧ ♡ ✧ 🕸</div>
+</section>
+
+<section id="event">
+    <h2>До встречи в темноте...</h2>
+
+    <p class="description">
+        Часы тикают, розы увядают, а маленькая тайна
+        становится всё ближе. Осталось совсем немного
+        до момента, когда мы узнаем, кто изменит наш мир навсегда.
+    </p>
+
+    <div class="timer">
+        <div class="time-box">
+            <strong id="days">000</strong>
+            <span>дней</span>
+        </div>
+        <div class="time-box">
+            <strong id="hours">00</strong>
+            <span>часов</span>
+        </div>
+        <div class="time-box">
+            <strong id="minutes">00</strong>
+            <span>минут</span>
+        </div>
+        <div class="time-box">
+            <strong id="seconds">00</strong>
+            <span>секунд</span>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="symbol">♱</div>
+            <h3>Где?</h3>
+            <p>В тёмном лесу, у болот.<br>
+            Найдут дорогу только самые смелые души.</p>
+        </div>
+
+        <div class="card">
+            <div class="symbol">☾</div>
+            <h3>Когда?</h3>
+            <p>5 октября 2027 года<br>
+            Ровно в 00:00</p>
+        </div>
+
+        <div class="card">
+            <div class="symbol">🥀</div>
+            <h3>Зачем?</h3>
+            <p>Чтобы узнать, кто прячется за завесой тайны:
+            маленькая готесса или ангел тьмы.</p>
+        </div>
+    </div>
+
+    <div class="calendar">
+        <div class="month">Октябрь 2027 ♡</div>
+        <div class="days" id="calendar"></div>
+    </div>
+</section>
+
+<section id="guess">
+    <h2>Сделай свою ставку ♡</h2>
+
+    <p class="description">
+        Судьба ещё не открыла свои карты.
+        Как думаешь, кто скоро появится в нашей истории?
+        Выбирай сердцем... но помни: тьма всё видит.
+    </p>
+
+    <div class="vote-grid">
+        <button class="vote" onclick="guess('Готесса')">
+            <span class="emoji">🥀</span>
+            <strong>Готесса</strong>
+            <p>Маленькая королева тьмы</p>
+        </button>
+
+        <button class="vote blue" onclick="guess('Ангел тьмы')">
+            <span class="emoji">🖤</span>
+            <strong>Ангел тьмы</strong>
+            <p>Маленький принц ночи</p>
+        </button>
+    </div>
+
+    <p class="vote-result" id="voteResult">
+        Твой выбор может изменить всё...
+    </p>
+</section>
+
+<section id="dress">
+    <h2>Дресс-код: dark romance</h2>
+
+    <p class="description">
+        Оставьте яркие цвета для другого мира.
+        В эту ночь мы выбираем эстетику грусти,
+        тёмной романтики и нежной готики.
+    </p>
+
+    <div class="dress">
+        <div class="swatches">
+            <div class="swatch">
+                <div class="color pink-color"></div>
+                <span>Тёмно-розовый</span>
+            </div>
+            <div class="swatch">
+                <div class="color blue-color"></div>
+                <span>Тёмно-голубой</span>
+            </div>
+        </div>
+
+        ♡ Кружево, рюши, чёрные ленты и розы.
+        <br>
+        ♱ Цепи, серебряные украшения, кресты и шипы.
+        <br>
+        🥀 Эмо-макияж, готические аксессуары и немного драмы.
+        <br><br>
+        <i>Будьте собой. Даже если ваша душа принадлежит ночи.</i>
+    </div>
+</section>
+
+<section id="rsvp">
+    <h2>RSVP ♱</h2>
+
+    <p class="description">
+        Мы хотим знать, кто разделит с нами эту ночь.
+        Подтверди присутствие и оставь своё имя
+        в нашей маленькой книге тёмных душ.
+    </p>
+
+    <form id="rsvpForm">
+        <label for="guest">Как тебя зовут?</label>
+        <input id="guest" name="guest" type="text"
+               placeholder="Твоё имя..." required>
+
+        <label for="attendance">Придёшь ли ты?</label>
+        <select id="attendance" name="attendance" required>
+            <option value="yes">Да, я приду ♡</option>
+            <option value="maybe">Пока не уверен(а)</option>
+        </select>
+
+        <button type="submit" class="btn">
+            Запечатать обещание ♡
+        </button>
+
+        <p id="formMessage"></p>
+    </form>
+
+    <button class="btn no-button" onclick="refuse()">
+        Я не приду... 🥀
+    </button>
+</section>
+
+<footer>
+    <div class="ornament">─── ♡ ───</div>
+    <div class="signature">Асия & Алихан</div>
+    <p>Маленькая жизнь. Большая тайна. Бесконечная любовь.</p>
+    <p>Мы очень ждём тебя в нашей тёмной сказке ♡</p>
+    <small>05.10.2027 · До встречи на другой стороне...</small>
+</footer>
+
+<!-- Окно скримера -->
+<div class="scare" id="scare" role="dialog"
+     aria-modal="true" aria-label="Шуточный скример">
+    <div class="skull">💀</div>
+    <h2 id="scareTitle">ТЕБЯ ВИДИТ ТЬМА!</h2>
+    <p id="scareText">Твоя ставка принята... назад пути нет.</p>
+    <button class="btn" onclick="closeScare()">
+        Вернуться в мир живых ♡
+    </button>
+</div>
+
+<script>
+// Обратный отсчёт до полуночи 5 октября 2027 года
+const eventDate = new Date(2027, 9, 5, 0, 0, 0);
+
+function updateTimer() {
+    const now = new Date();
+    let difference = eventDate - now;
+
+    if (difference <= 0) {
+        document.getElementById("days").textContent = "♡";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        return;
+    }
+
+    const days = Math.floor(difference / 86400000);
+    const hours = Math.floor((difference % 86400000) / 3600000);
+    const minutes = Math.floor((difference % 3600000) / 60000);
+    const seconds = Math.floor((difference % 60000) / 1000);
+
+    document.getElementById("days").textContent =
+        String(days).padStart(3, "0");
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
+
+// Календарь: октябрь 2027 года
+function buildCalendar() {
+    const calendar = document.getElementById("calendar");
+    const weekdays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+
+    weekdays.forEach(day => {
+        const cell = document.createElement("div");
+        cell.className = "weekday";
+        cell.textContent = day;
+        calendar.appendChild(cell);
+    });
+
+    // 1 октября 2027 года — пятница
+    for (let i = 0; i < 4; i++) {
+        calendar.appendChild(document.createElement("div"));
+    }
+
+    for (let day = 1; day <= 31; day++) {
+        const cell = document.createElement("div");
+        cell.textContent = day;
+
+        if (day === 5) {
+            cell.className = "selected-day";
+            cell.title = "Гендер-пати Асии и Алихана ♡";
+        }
+
+        calendar.appendChild(cell);
+    }
+}
+
+buildCalendar();
+
+// Интерактивное голосование со скримером
+function guess(choice) {
+    document.getElementById("voteResult").textContent =
+        "Твой выбор: «" + choice + "». Тайна пока не раскрыта... ♡";
+
+    showScare(
+        "ТВОЯ СТАВКА ПРИНЯТА!",
+        "Ты сделал(а) свой выбор... но тайна раскроется только на гендер-пати."
+    );
+}
+
+// Кнопка отказа
+function refuse() {
+    showScare(
+        "ТЕБЕ НУЖНО ПРИЙТИ ЦЕНОЙ ЖИЗНИ...",
+        "Шутка! 🖤 Но Асия и Алихан очень хотят разделить этот момент с тобой."
+    );
+}
+
+function showScare(title, message) {
+    document.getElementById("scareTitle").textContent = title;
+    document.getElementById("scareText").textContent = message;
+
+    const scare = document.getElementById("scare");
+    scare.classList.add("active");
+    scare.querySelector("button").focus();
+}
+
+function closeScare() {
+    document.getElementById("scare").classList.remove("active");
+}
+
+// RSVP: демонстрационная форма
+document.getElementById("rsvpForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("guest").value.trim();
+    const attendance = document.getElementById("attendance").value;
+    const message = document.getElementById("formMessage");
+
+    if (!name) return;
+
+    if (attendance === "yes") {
+        message.textContent =
+            "♡ " + name + ", твоё обещание принято! Ждём тебя в тёмном лесу.";
+    } else {
+        message.textContent =
+            name + ", мы будем ждать твоего решения. ♡";
+    }
+});
+</script>
+
+</body>
+</html>
+```
